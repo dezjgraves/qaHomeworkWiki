@@ -1,4 +1,4 @@
-//SETTING VARIABBLES REVIEW
+//SETTING VARIABLES REVIEW
 var numberOne: number = 10;
 var numberTwo: number = 15;
 var wordOne: string = "word";
@@ -9,7 +9,7 @@ var booleanTwo: boolean = false;
 describe("Should add variables", () => {
     it("should add the numbers", () => {
         expect(numberOne + numberTwo).toEqual(25);
-        expect(numberTwo) -  numberOne).toEqual(5);
+        expect(numberTwo - numberOne).toEqual(5);
     })
 })
 it("should not pass with caps", () => {
