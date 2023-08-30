@@ -12,13 +12,13 @@ describe("Filling in the blanks", () => {
         await driver.quit();
     })
 
-    const hdrInput: By = By.name('hdrInput');
+    const hdrInput: By = By.css('[name=hdrInput]');
     const mkeInput: By = By.name('mkeInput');
-    const oaiInput: By = By.name('oriInput');
+    const oaiInput: By = By.xpath('(//input[@class="inputField"])[13]');
     const nameInput: By = By.name('namInput');
     const clrBtn: By = By.id('clearBtn');
     const submitBtn: By = By.id('saveBtn');
-    const errorMsg: By = By.id('validHeader');
+    const errorMsg: By = By.css('#validHeader');
 
     test("filling in the blanks for real", async () => {
         await driver.findElement(hdrInput).sendKeys("Change this")
@@ -26,7 +26,8 @@ describe("Filling in the blanks", () => {
         await driver.findElement(oaiInput).sendKeys("change this")
         await driver.findElement(nameInput).sendKeys("change this")
         await driver.findElement(submitBtn).click()
-        expect(errorMsg).toContain("Errors Received:")
+        let errorText = await driver.findElement(errorMsg).getText()
+        expect(errorText).toContain("Errors Received:")
         await driver.findElement(clrBtn).click()
         
     })
