@@ -1,8 +1,8 @@
-class Animall {
+class Animal {
     name: string;
-    sound: string;
+    sound: string | null;
     food: string;
-    constructor(name: string, sound: string, food: string) {
+    constructor(name: string, sound: string | null, food: string) {
       this.name = name;
       this.sound = sound;
       this.food = food;
